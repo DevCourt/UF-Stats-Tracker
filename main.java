@@ -1,6 +1,15 @@
+/*
+    This is the main class for the UF Basketball Status Tracker program without a database.
+
+	@author Courtney Ingersoll
+*/
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/*
+    This class contains the main method for the UF Basketball Stats Tracker program.
+*/
 public class main {
 	private String playerName;
 	private int threePointers;
@@ -13,6 +22,10 @@ public class main {
 
 	Scanner scanner = new Scanner(System.in);
 
+/*
+    This is the constructor for the main class. It allows the user to choose an option.
+	@throws an error if the user enters an invalid option.
+*/
 	public main() {
 		players players = new players();
 		playerList = players.getPlayerList();
@@ -38,7 +51,9 @@ public class main {
 				option = 0;
 				continue;
 			}
-
+			/*
+			 This option displays all players and their stats.
+			*/
 			if (option == 1) {
 				System.out.println("Here are the list of players: " + "\n");
 
@@ -51,6 +66,9 @@ public class main {
 					System.out.println("Total Points: " + player.getTotalPoints() + "\n");
 				}
 			}
+			/*
+			 This option adds a new player.
+			*/
 			else if (option == 2) {
 				System.out.print("Enter player name: ");
 				playerName = scanner.next();
@@ -76,6 +94,9 @@ public class main {
 					}
 				}
 			}
+			/*
+			 This option removes a player.
+			*/
 			else if (option == 3) {
 				System.out.print("Enter player name to remove: ");
 				playerName = scanner.next();
@@ -94,6 +115,10 @@ public class main {
 					System.out.println("Player has not been removed.");
 				}
 			}
+			/*
+			 This option updates a player's stats.
+			 @throws an error if the user enters invalid numbers.
+			*/
 			else if (option == 4) {
 				scanner.nextLine(); 
 				System.out.print("Enter player name to update: ");
@@ -147,6 +172,10 @@ public class main {
 					System.out.println("Player not found.");
 				}
 			}
+			/*
+			 This option displays a player's stats.
+			 @throws an error if the player is not found.
+			*/
 			else if (option == 5) {
 				System.out.print("Enter player name to show stats: ");
 				scanner.nextLine(); 
@@ -169,6 +198,10 @@ public class main {
 					System.out.println("Player not found.");
 				}
 			}
+			/*
+			 This option uploads players from a text file.
+			 @throws an error if the file cannot be found.
+			*/
 			else if (option == 6) {
 				System.out.print("Enter the path of the txt file: ");
 				String filePath = scanner.next();
@@ -180,6 +213,10 @@ public class main {
 					System.out.println("Failed to upload players from file.");
 				}
 			}
+			/*
+			 This option exits the program.
+			 @throws an error if the user enters an invalid option.
+			*/
 			else if (option == 7) {
 				System.out.println("Exiting the program.");
 			}
